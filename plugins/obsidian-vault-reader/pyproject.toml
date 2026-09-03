@@ -1,0 +1,9 @@
+[project]
+name = "obsidian-vault-reader"
+version = "0.1.0"
+description = "Shareable Obsidian vault connector for Codex"
+requires-python = ">=3.11"
+dependencies = ["trsdn-obsidian-mcp==0.1.2", "fastmcp==3.4.7"]
+
+[tool.uv]
+package = false

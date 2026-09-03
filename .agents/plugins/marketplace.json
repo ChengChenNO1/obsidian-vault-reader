@@ -1,0 +1,20 @@
+{
+  "name": "obsidian-vault",
+  "interface": {
+    "displayName": "Obsidian Vault"
+  },
+  "plugins": [
+    {
+      "name": "obsidian-vault-reader",
+      "source": {
+        "source": "local",
+        "path": "./plugins/obsidian-vault-reader"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "obsidian-vault-reader",
+  "version": "0.1.0+codex.20260903073224",
+  "description": "Connect a user-selected Obsidian vault to Codex for searching, reading and editing notes.",
+  "author": {
+    "name": "guifa"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Obsidian \u77e5\u8bc6\u5e93\u52a9\u624b",
+    "shortDescription": "\u81ea\u9009\u77e5\u8bc6\u5e93\uff0c\u5728 Codex \u4e2d\u641c\u7d22\u3001\u9605\u8bfb\u4e0e\u4fee\u6539\u7b14\u8bb0\u3002",
+    "longDescription": "Connect your own local Obsidian vault. Search Markdown notes, read sources, create and edit notes, move or delete with local backups. Each user chooses their vault and read-only or read-write access. Built on trsdn/obsidian-mcp.",
+    "developerName": "guifa",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "\u8fde\u63a5\u6211\u7684 Obsidian \u77e5\u8bc6\u5e93\uff0c\u5141\u8bb8\u67e5\u8be2\u548c\u4fee\u6539",
+      "\u641c\u7d22\u77e5\u8bc6\u5e93\u5e76\u5f15\u7528\u76f8\u5173\u7b14\u8bb0",
+      "\u6839\u636e\u6211\u7684\u8981\u6c42\u66f4\u65b0\u4e00\u7bc7\u7b14\u8bb0"
+    ],
+    "brandColor": "#7C3AED"
+  },
+  "mcpServers": "./.mcp.json",
+  "license": "MIT",
+  "repository": "https://github.com/ChengChenNO1/obsidian-vault-reader",
+  "homepage": "https://github.com/ChengChenNO1/obsidian-vault-reader#readme",
+  "keywords": [
+    "obsidian",
+    "vault",
+    "notes",
+    "mcp"
+  ]
+}
