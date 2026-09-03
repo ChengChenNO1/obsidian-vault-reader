@@ -62,5 +62,6 @@ uv run --frozen python scripts/verify.py
 ```
 
 测试仅操作临时测试库。Windows 已验证读取、搜索、增改移删、备份恢复和边界检查；macOS/Linux 尚未实机验收。
+2026-09-03 已通过独立 Codex 配置验证：从本 GitHub 仓库添加 marketplace、安装插件、启动下载副本并发现全部 9 个 MCP 工具。
 
 本项目为独立社区插件，非 Obsidian/OpenAI 官方插件。MIT 许可；依赖保留各自许可。
