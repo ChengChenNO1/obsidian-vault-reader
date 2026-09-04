@@ -1,67 +1,69 @@
-# Obsidian 知识库助手 · Codex 插件
+[English](README.md) | [中文](README.zh-CN.md)
 
-让 Codex 直接查询和修改你选择的本地 Obsidian 知识库。
+# Obsidian Vault Assistant - Codex Plugin
 
-支持中文路径、全文/文件名搜索、读取、新建、修改、追加、移动和删除 Markdown 笔记；修改前备份，并检查内容冲突。使用者自行选择库和只读/读写权限，无需 Obsidian REST API 或 API key。
+Let Codex directly query and modify your selected local Obsidian vault.
 
-## 直接安装
+Supports Chinese paths, full-text/filename search, read, create, edit, append, move, and delete Markdown notes. Modifications are backed up before writing, with content-conflict checks. Users choose their own vault and read-only/read-write permissions. No Obsidian REST API or API key is required.
 
-需要 **Codex CLI、Git 和 [uv](https://docs.astral.sh/uv/getting-started/installation/)**，并确保 `uv` 在 Codex 的 PATH 中。首次启动需要联网下载依赖；uv 可按需安装 Python 3.11 以上版本。
+## Installation
+
+Requires **Codex CLI, Git, and [uv](https://docs.astral.sh/uv/getting-started/installation/)**, with `uv` in Codex's PATH. First launch downloads dependencies online; uv can install Python 3.11+ on demand.
 
 ```sh
 codex plugin marketplace add https://github.com/ChengChenNO1/obsidian-vault-reader.git
 codex plugin add obsidian-vault-reader@obsidian-vault
 ```
 
-或者将下面这段话发送给另一台电脑的 Codex：
+Or send this message to Codex on another machine:
 
-> 请从 https://github.com/ChengChenNO1/obsidian-vault-reader 安装 Obsidian 知识库助手，检查 Git 和 uv，添加该仓库的 marketplace，再安装 obsidian-vault-reader@obsidian-vault。
+> Install the Obsidian Vault Assistant from https://github.com/ChengChenNO1/obsidian-vault-reader. Check Git and uv, add the repository's marketplace, then install obsidian-vault-reader@obsidian-vault.
 
-安装后**新建一个 Codex 任务**，直接说：
+After installation, **start a new Codex task** and say:
 
-> 使用 Obsidian 知识库助手，连接“我的知识库完整路径”，允许查询和修改。
+> Use the Obsidian Vault Assistant, connect to "full path to my vault", allow query and modification.
 
-Windows 路径示例：`D:\我的知识库`；macOS 路径示例：`/Users/你的用户名/Documents/我的知识库`。
-插件不会自动猜测路径，也不会自动连接仓库作者的库。
+Windows path example: `D:\MyVault`; macOS path example: `/Users/yourusername/Documents/MyVault`.
+The plugin does not auto-guess paths and never connects to the repository author's vault.
 
-连接后可以说：
+Once connected, you can say:
 
-- “搜索与项目复盘有关的笔记，给出来源。”
-- “把计划.md 中这一段修改为……，保留其他内容。”
-- “新建收件箱/想法.md，内容是……”
-- “将旧笔记.md 移动到归档目录，检查需要更新的引用。”
+- "Search for notes related to project retrospective, with sources."
+- "Change this paragraph in plan.md to..., keeping everything else."
+- "Create inbox/ideas.md with the content..."
+- "Move old-note.md to the archive directory, check references that need updating."
 
-## 范围与备份
+## Scope & Backup
 
-- 直接读写 `.md` / `.markdown`，修改会反映到 Obsidian 中。单篇上限 2 MiB。
-- 覆盖、追加、移动和删除已有笔记前备份；修改操作需要先读取并提供内容哈希。
-- 本机配置和备份位于 `~/.obsidian-codex/`。插件代码中不包含使用者笔记、库路径或凭据。
-- 移动不会自动修正其他笔记的 wikilinks；请同时要求 Codex 更新相关引用。
-- 隐藏目录、符号链接和目录联接不开放；不支持 PDF/OCR、图片或 Canvas 编辑。
-- 这是本地 Codex 插件。普通 ChatGPT 网页无法通过本插件直接访问电脑磁盘。
+- Directly reads and writes `.md` / `.markdown` files; changes are reflected in Obsidian. Single-note size limit: 2 MiB.
+- Backs up before overwrite, append, move, or delete existing notes; write operations require a prior read and content hash.
+- Local configuration and backups are stored in `~/.obsidian-codex/`. The plugin code contains no user notes, vault paths, or credentials.
+- Moves do not auto-fix wikilinks in other notes; ask Codex to update related references separately.
+- Hidden directories, symlinks, and junctions are not accessible; PDF/OCR, image, or Canvas editing is not supported.
+- This is a local Codex plugin. Regular ChatGPT web cannot directly access your disk through this plugin.
 
-完整用法、限制和恢复方法见 [插件说明](plugins/obsidian-vault-reader/README.md)。
+Full usage, limitations, and recovery methods are in the [plugin docs](plugins/obsidian-vault-reader/README.md).
 
-## 更新
+## Updates
 
 ```sh
 codex plugin marketplace upgrade obsidian-vault
 codex plugin add obsidian-vault-reader@obsidian-vault
 ```
 
-更新后新建任务加载新版本。若 Codex 不认识 `plugin` 子命令，请先升级 Codex CLI。
+Start a new task after updating to load the new version. If Codex does not recognize the `plugin` subcommand, upgrade Codex CLI first.
 
-## 实现与验证
+## Implementation & Verification
 
-基于 [trsdn/obsidian-mcp](https://github.com/trsdn/obsidian-mcp) 和 [FastMCP](https://github.com/PrefectHQ/fastmcp)，通过 `uv.lock` 固定依赖。
-适配层增加自选库、权限、本机备份、冲突检查、路径检查和 Windows 中文搜索支持。
+Built on [trsdn/obsidian-mcp](https://github.com/trsdn/obsidian-mcp) and [FastMCP](https://github.com/PrefectHQ/fastmcp), with dependencies pinned via `uv.lock`.
+The adapter layer adds vault selection, permissions, local backups, conflict checks, path validation, and Windows Chinese-path search support.
 
 ```sh
 cd plugins/obsidian-vault-reader
 uv run --frozen python scripts/verify.py
 ```
 
-测试仅操作临时测试库。Windows 已验证读取、搜索、增改移删、备份恢复和边界检查；macOS/Linux 尚未实机验收。
-2026-09-03 已通过独立 Codex 配置验证：从本 GitHub 仓库添加 marketplace、安装插件、启动下载副本并发现全部 9 个 MCP 工具。
+Tests operate only on temporary test vaults. Windows has been verified for read, search, create/edit/move/delete, backup recovery, and boundary checks; macOS/Linux have not been tested on real hardware.
+Verified on 2026-09-03 with an independent Codex configuration: added the marketplace from this GitHub repo, installed the plugin, launched the downloaded copy, and discovered all 9 MCP tools.
 
-本项目为独立社区插件，非 Obsidian/OpenAI 官方插件。MIT 许可；依赖保留各自许可。
+This is an independent community plugin, not an official Obsidian/OpenAI plugin. MIT license; dependencies retain their respective licenses.
