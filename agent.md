@@ -15,3 +15,10 @@
 - 根据下载副本的 `.mcp.json` 启动真实 MCP 服务，9 个工具均可发现，connection_status 返回未连接。
 - 未选择或操作真实知识库；本机原有 personal 安装保持启用，并同步了 GitHub 说明及链接。
 - 测试配置和结果仅保存在 gitignore 排除的 `.verification/` 中，不提交到 GitHub。
+
+## 2026-10-20 Agensi 包结构
+
+- 新增 distribution/agensi 根 skill 和英文 MCP 安装说明；现有 Codex 插件功能保留。
+- scripts/package_agensi.py 使用原安装器 FILES 白名单，生成含根 SKILL.md 的独立 ZIP。
+- 分发包只包含源码、锁文件、MIT 许可及安装说明，不含笔记、连接配置、备份或运行环境。
+- Agensi 展示名 Obsidian Vault Assistant，用户指定一次性售价 USD 3。
