@@ -4,7 +4,7 @@
 
 Use a local agent that supports both SKILL.md and stdio MCP servers. Install uv on the computer running the agent. Python 3.11+ is required; uv can provision it. The first dependency sync may need internet access. An agent subscription or model API cost is separate from the skill purchase.
 
-This package contains the working Python MCP server, uv.lock, and the original Codex plugin under `assets/obsidian-vault-reader/`. The purchase does not provide cloud hosting or a new Obsidian account. The open-source components retain their MIT notices.
+This package contains the working Python MCP server, uv.lock, and the original Codex plugin under `assets/obsidian-vault-reader/`. The purchase does not provide cloud hosting or a new Obsidian account. The adapter is MIT licensed; dependencies retain their own licenses.
 
 ## Codex: install the bundled plugin
 
